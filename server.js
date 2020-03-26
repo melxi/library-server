@@ -6,6 +6,13 @@ const config = require('./utils/config')
 const app = express()
 
 const indexRouter = require('./routes/index')
+const authorRouter = require('./routes/authors')
+
+// Bodyparser middleware
+app.use(express.urlencoded({
+  limit: '10mb',
+  extended: false
+}))
 
 // Connect to MongoDB
 mongoose
@@ -25,6 +32,7 @@ app.use(express.static('public'))
 
 // Controllers
 app.use('/', indexRouter)
+app.use('/authors', authorRouter)
 
 
 // Connect to PORT
