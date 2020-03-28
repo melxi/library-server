@@ -7,6 +7,7 @@ const app = express()
 
 const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
+const bookRouter = require('./routes/books')
 
 // Bodyparser middleware
 app.use(express.urlencoded({
@@ -33,6 +34,7 @@ app.use(express.static('public'))
 // Controllers
 app.use('/', indexRouter)
 app.use('/authors', authorRouter)
+app.use('/books', bookRouter)
 
 
 // Connect to PORT
