@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const expressLayouts = require('express-ejs-layouts')
+const methodOverride = require('method-override')
 const config = require('./utils/config')
 
 const app = express()
@@ -29,6 +30,7 @@ app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
+app.use(methodOverride('_method'))
 app.use(express.static('public'))
 
 // Controllers
